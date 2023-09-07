@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,800;0,900;0,1000;1,800&display=swap" rel="stylesheet">
+    <title>Array</title>
+    <style>
+        body{
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        .heading{
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            font-size: 30px;
+            height: 40px;
+        }
+
+        .data_containers {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: row;
+            
+        }
+
+        .photo {
+            height: 400px;
+            margin-left: 180px;
+            margin-top: 20px;
+            margin-right: 100px;
+            width: 500px;
+            border-radius: 10px;
+            /* padding-top: 90px; */
+        }
+        .Defination {
+            display: flex;
+            flex-direction: row;
+            border: 10px solid  #3498db; /* Set the border style, width, and color */
+            height: 80px;
+            width: 1120px;
+            margin-left: 180px;
+            margin-top: 50px;
+            color: #3498db;
+            padding: 5px;
+            
+            border-radius: 10px;
+            /* padding-top: 90px; */
+        }
+
+        .Defination .name{
+            color: #065e98;
+        }
+        .opration {
+            border: 10px solid  #3498db; /* Set the border style, width, and color */
+            margin-top: 50px;
+            height: 300px;
+            width: 500px;
+            border-radius: 10px;
+            padding-top: 20px;
+            color: #3498db;
+            font-size: 35px;
+        }
+
+        .opration .heading_name{
+            margin-bottom: 20px;
+        }
+
+        .photo img{
+            width: 450px;
+            padding-top: 60px;
+           
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 10px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #3498db;
+            
+
+            /* transition: background-color 0.3s ease; */
+        }
+
+        .btn:hover {
+            background-color: #3498db;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+       LinkedList 
+    </div>
+
+    <div class="Defination">
+        <div class="name">Defination:-</div>
+      <div class="defe">A linked list is a data structure in which a collection of nodes is used to represent a linear sequence of elements. Each node contains data and a reference (pointer) to the next node in the sequence, forming a chain-like structure. The last node typically points to null to indicate the end of the list.</div>
+    </div>
+
+    <div class="data_containers">
+            <div class="photo">
+                <img src="LinkedList.png" alt="#">
+
+            </div>
+            <div class="opration">
+                <div class = "heading_name">
+                    Oprations
+                </div>
+                <button class="btn btn-outline-info" class="btn" onclick="visualize('L1')">Add an element</button>
+                <button class="btn btn-outline-info" class="btn" onclick="visualize('L2')">Delete an element </utton>
+                   
+                <button class="btn btn-outline-info" class="btn" onclick="visualize('L3')">Searching</button>
+                
+            </div>
+        </div>
+
+    
+</body>
+
+<script>
+    function visualize(dataStructure) {
+        // Check which data structure is selected
+        if (dataStructure === 'L1') {
+            // Redirect to Array.html
+            window.location.href = 'LinkedListInsert.html';
+        } 
+         if (dataStructure === 'L2') {
+            // Redirect to LinkedList.html (if you have a separate page for linked list)
+            window.location.href = 'LinkedListDelete.html';
+        }
+        if (dataStructure === 'L3') {
+            // Redirect to LinkedList.html (if you have a separate page for linked list)
+            window.location.href = 'LinkedListSearch.html';
+        }
+        
+      
+        
+        
+    }
+    </script>
+</html>

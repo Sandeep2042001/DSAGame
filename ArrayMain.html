@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,800;0,900;0,1000;1,800&display=swap" rel="stylesheet">
+    <title>Array</title>
+    <style>
+        body{
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        .heading{
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            font-size: 30px;
+            height: 40px;
+        }
+
+        .data_containers {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: row;
+            
+        }
+
+        .photo {
+            height: 400px;
+            margin-left: 180px;
+            margin-top: 20px;
+            margin-right: 100px;
+            width: 500px;
+            border-radius: 10px;
+            /* padding-top: 90px; */
+        }
+        .Defination {
+            display: flex;
+            flex-direction: row;
+            border: 10px solid  #3498db; /* Set the border style, width, and color */
+            height: 80px;
+            width: 1120px;
+            margin-left: 180px;
+            margin-top: 50px;
+            color: #3498db;
+            padding: 5px;
+            
+            border-radius: 10px;
+            /* padding-top: 90px; */
+        }
+
+        .Defination .name{
+            color: #065e98;
+        }
+        .opration {
+            border: 10px solid  #3498db; /* Set the border style, width, and color */
+            margin-top: 50px;
+            height: 300px;
+            width: 500px;
+            border-radius: 10px;
+            padding-top: 20px;
+            color: #3498db;
+            font-size: 35px;
+        }
+
+        .opration .heading_name{
+            margin-bottom: 20px;
+        }
+
+        .photo img{
+            width: 450px;
+            padding-top: 60px;
+           
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 10px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #3498db;
+            
+
+            /* transition: background-color 0.3s ease; */
+        }
+
+        .btn:hover {
+            background-color: #3498db;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+       Array 
+    </div>
+
+    <div class="Defination">
+        <div class="name">Defination:-</div>
+      <div class="defe">An array is a collection of items stored at contiguous memory locations. The idea is to store multiple items of the same type together. This makes it easier to calculate the position of each element by simply adding an offset to a base value, i.e., the memory location of the first element of the array (generally denoted by the name of the array).</div>
+    </div>
+
+    <div class="data_containers">
+            <div class="photo">
+                <img src="Array.png" alt="#">
+
+            </div>
+            <div class="opration">
+                <div class = "heading_name">
+                    Oprations
+                </div>
+                <button class="btn btn-outline-info" class="btn" onclick="visualize('array1')">Insert an element</button>
+                <button class="btn btn-outline-info" class="btn" onclick="visualize('array2')">Delete an element </utton>
+                    <button class="btn btn-outline-info" class="btn" onclick="visualize('array3')">Traverse</button>
+                <button class="btn btn-outline-info" class="btn" onclick="visualize('array4')">Searching</button>
+                
+            </div>
+        </div>
+
+    
+</body>
+
+<script>
+    function visualize(dataStructure) {
+        // Check which data structure is selected
+        if (dataStructure === 'array1') {
+            // Redirect to Array.html
+            window.location.href = 'ArrayInsert.html';
+        } 
+         if (dataStructure === 'array2') {
+            // Redirect to LinkedList.html (if you have a separate page for linked list)
+            window.location.href = 'ArrayDelete.html';
+        }
+        if (dataStructure === 'array3') {
+            // Redirect to LinkedList.html (if you have a separate page for linked list)
+            window.location.href = 'ArrayTraversal.html';
+        }
+        if (dataStructure === 'array4') {
+            // Redirect to LinkedList.html (if you have a separate page for linked list)
+            window.location.href = 'ArraySearching.html';
+        }
+        
+        
+    }
+    </script>
+</html>

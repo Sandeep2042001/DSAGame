@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Structures Visualization</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,800;0,900;0,1000;1,800&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    
+    <!-- <link rel="stylesheet" href="dataGame.css"> -->
+
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        
+        .heading {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            font-size: 24px;
+        }
+        
+        .data_containers {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: row;
+            
+        }
+        
+        .simple_data {
+            border: 10px solid  #3498db; /* Set the border style, width, and color */
+            height: 400px;
+            margin-left: 500px;
+            margin-top: 50px;
+            margin-right: 100px;
+            width: 500px;
+            border-radius: 10px;
+            /* padding-top: 90px; */
+        }
+        
+        .simple_data .heading_min1{
+            background-color: #3498db;
+            width: 200px;
+            height: 60px;
+            font-size: 20px;
+            font-weight: 100;
+            color: white;
+            margin-left: 140px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            margin-bottom: 50px;
+            padding-top: 10px;
+        }
+        
+        /*.advanced_data .heading_min2{
+            background-color: #3498db;
+            width: 200px;
+            height: 60px;
+            font-size: 20px;
+            font-weight: 100;
+            color: white;
+            margin-left: 140px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            margin-bottom: 50px;
+        }
+        */
+        
+       /* .advanced_data {
+            border: 10px solid  #3498db; 
+            margin-top: 50px;
+            height: 400px;
+            width: 500px;
+            border-radius: 10px;
+        }
+        */
+        
+        /* Add your other styles for buttons (btn) here */
+        
+              
+        
+        
+                .btn {
+                    padding: 15px 30px;
+                    font-size: 18px;
+                    margin: 10px;
+                    border: 2px solid #3498db;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    /* transition: background-color 0.3s ease; */
+                }
+        
+                .btn:hover {
+                    background-color: #3498db;
+                    color: white;
+                    border: none;
+                }
+        
+                .simple_data:hover{
+                    box-shadow: 10px 5px 5px #708c9f;
+                }
+                
+               /* .advanced_data:hover{
+                    
+                    box-shadow: 10px 5px 5px #708c9f;
+                }
+                */
+
+                .Footer{
+                    background-color: #d3ecfe;
+                    height: 130px;
+                    margin-top: 54px;
+                    padding: 12px;
+                    color: #3498db;
+                }
+
+                .Footer p{
+                    padding-top: 10px;
+                    font-size: small;
+                    
+                }
+        
+        
+          
+    </style>
+</head>
+<body>
+        <div class="heading">
+            Data Structures Visualization 
+        </div>
+
+    <div class="data_containers">
+        <div class="simple_data">
+            <div class="heading_min1">
+                Data Structures
+            </div>
+            <!-- <div class="buttons1"> -->
+                <button class="btn btn-outline-info" class="btn" onclick="visualize('array')">Array</button>
+                <button class="btn btn-outline-info" class="btn" onclick="visualize('String')">String </utton>
+                <button class="btn btn-outline-info" class="btn" onclick="visualize('Stack')">Stack</button>
+                <button class="btn btn-outline-info" class="btn" onclick="visualize('Queue')">Queue</button>
+                <button class="btn btn-outline-info" class="btn" onclick="visualize('Linkedlist')">Linked List</button>
+                
+                <!-- Add more buttons for other data structures here -->
+            <!-- </div> -->
+        </div>
+    
+        <!-- <div class="advanced_data">
+            <div class="buttons2">
+                <div class="heading_min2">
+                    Advanced Data Structures
+                </div>
+                <button class="btn btn-outline-info" class="btn" onclick="visualize('Binary Trees')">Binary Trees</button>
+                <button class="btn btn-outline-info" class="btn" onclick="visualize('Binary Search Trees')">Binary Search Trees </utton>
+                <button class="btn btn-outline-info" class="btn" onclick="visualize('Heap')">Heap</button>
+                <button class="btn btn-outline-info" class="btn" onclick="visualize('Hashing')">Hashing</button>
+                <button class="btn btn-outline-info" class="btn" onclick="visualize('Tries')">Tries</button>
+                <button class="btn btn-outline-info" class="btn" onclick="visualize('Graph')">Graph</button>
+                <button class="btn btn-outline-info" class="btn" onclick="visualize('DP')">DP</button>
+        
+        </div> -->
+    
+    </div>
+
+    <footer>
+            <div class="Footer">
+                <h1>MNIT</h1>
+                About : This website is for the batter Visualization of the data structures and algorithms to make them more understandable.
+                <p>&copy; 2023 Delta 1.O All rights reserved.</p>
+            </div>
+    </footer>
+
+    <script>
+        function visualize(dataStructure) {
+            // Check which data structure is selected
+            if (dataStructure === 'array') {
+                // Redirect to Array.html
+                window.location.href = 'ArrayMain.html';
+            } 
+             if (dataStructure === 'Linkedlist') {
+                // Redirect to LinkedList.html (if you have a separate page for linked list)
+                window.location.href = 'LinkedListMain.html';
+            }
+             if (dataStructure === 'Stack') {
+                // Redirect to LinkedList.html (if you have a separate page for linked list)
+                window.location.href = 'StackMain.html';
+            }
+             if (dataStructure === 'Queue') {
+                // Redirect to LinkedList.html (if you have a separate page for linked list)
+                window.location.href = 'QueueMain.html';
+            }
+             if (dataStructure === 'String') {
+                // Redirect to LinkedList.html (if you have a separate page for linked list)
+                window.location.href = 'StringMain.html';
+            }
+            
+        }
+    </script>
+</body>
+</html>

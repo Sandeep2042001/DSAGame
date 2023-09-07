@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,800;0,900;0,1000;1,800&display=swap" rel="stylesheet">
+    <title>Linked List Visualization</title>
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            font-size: 24px;
+        }
+
+        #inputSection {
+            margin-top: 20px;
+        }
+
+        label {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        input {
+            font-size: 16px;
+            padding: 5px;
+            margin-bottom: 10px;
+
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            background-color: #2980b9;
+            color: #fff;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #resultSection {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .upper{
+            display: flex;
+            flex-direction: row;
+        }
+
+        .node-box {
+            background-color: #3498db;
+            /* Change box background color */
+            color: #fff;
+            /* Change text color */
+            border: 2px solid #3498db;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 5px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .null-box {
+            background-color: #f0f0f0;
+            /* Background color for NULL */
+            color: #333;
+            /* Text color for NULL */
+            border: 2px solid #333;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 5px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .arrow {
+            font-size: 18px;
+            margin: 0 10px;
+        }
+
+        .visible-arrow {
+            opacity: 1;
+            animation: arrowAnimation 1s ease infinite;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes arrowAnimation {
+            0% {
+                transform: translateX(-10px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .horizontal-list {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to LinkedList Data Structure</h1>
+    </header>
+
+    <div id="inputSection">
+        <h2>Enter LinkedList Nodes</h2>
+        <label for="headNode">Head:</label>
+        <input type="text" id="headNode"><br>
+
+        <label for="middleNode">Middle:</label>
+        <input type="text" id="middleNode"><br>
+
+        <label for="tailNode">Tail:</label>
+        <input type="text" id="tailNode"><br>
+
+        <h2>Insert Elements</h2>
+        <label for="insertAfterTail">Insert After Tail:</label>
+        <input type="text" id="insertAfterTail"><br>
+
+        <label for="insertBeforeHead">Insert Before Head:</label>
+        <input type="text" id="insertBeforeHead"><br>
+
+        <label for="insertAfterHead">Insert After Head:</label>
+        <input type="text" id="insertAfterHead"><br>
+    </div>
+
+    <button onclick="visualizeLinkedList()">Visualize LinkedList</button>
+
+    <div id="resultSection">
+        <h2>LinkedList:</h2>
+        <div id="linkedList" class="horizontal-list"></div>
+    </div>
+
+
+    <script>
+        function visualizeLinkedList() {
+            // Get user input values
+            const head = document.getElementById("headNode").value;
+            const middle = document.getElementById("middleNode").value;
+            const tail = document.getElementById("tailNode").value;
+            const insertAfterTail = document.getElementById("insertAfterTail").value;
+            const insertBeforeHead = document.getElementById("insertBeforeHead").value;
+            const insertAfterHead = document.getElementById("insertAfterHead").value;
+
+            // Create an empty linked list
+            let linkedList = [];
+
+            // Insert elements
+            if (head) {
+                linkedList.push(head);
+            }
+            if (middle) {
+                linkedList.push(middle);
+            }
+            if (tail) {
+                linkedList.push(tail);
+            }
+            if (insertAfterTail) {
+                linkedList.push(insertAfterTail);
+            }
+            if (insertBeforeHead) {
+                linkedList.unshift(insertBeforeHead);
+            }
+            if (insertAfterHead) {
+                const index = linkedList.indexOf(head);
+                if (index !== -1) {
+                    linkedList.splice(index + 1, 0, insertAfterHead);
+                }
+            }
+
+            // Add a "NULL" box to the end of the linked list
+            linkedList.push("NULL");
+
+            // Display the LinkedList with animations
+            displayLinkedList(linkedList);
+        }
+
+        function displayLinkedList(linkedList) {
+            const linkedListDiv = document.getElementById("linkedList");
+            linkedListDiv.innerHTML = "";
+
+            for (let i = 0; i < linkedList.length; i++) {
+                const nodeBox = document.createElement("div");
+                if (linkedList[i] === "NULL") {
+                    nodeBox.className = "null-box";
+                } else {
+                    nodeBox.className = "node-box";
+                }
+                nodeBox.textContent = linkedList[i];
+                linkedListDiv.appendChild(nodeBox);
+
+                if (i < linkedList.length - 1) {
+                    const arrow = document.createElement("span");
+                    arrow.className = "arrow visible-arrow";
+                    arrow.textContent = "->";
+                    linkedListDiv.appendChild(arrow);
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

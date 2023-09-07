@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Data Structure</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            font-size: 24px;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(100vh - 60px);
+        }
+
+        #buttons {
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            background-color: #2980b9;
+            color: #fff;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        #addElement{
+                padding: 10px;
+                font-size: 16px;
+            
+        }
+        #searchElement{
+            padding: 10px;
+            font-size: 16px;
+        
+    }
+    #removeElement{
+        padding: 10px;
+        font-size: 16px;
+    
+}
+        .char-box {
+            display: inline-block;
+            background-color: #3498db;
+            /* Updated color */
+            color: #fff;
+            /* Text color */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>Welcome to String Data Structure</header>
+    <div id="container">
+        <div id="buttons">
+            <input type="text" id="addElement" placeholder="Enter a character">
+            <button class="btn" onclick="addElement()">Add Element</button>
+
+            <input type="text" id="searchElement" placeholder="Search character">
+            <button class="btn" onclick="searchElement()">Search</button>
+
+            <input type="text" id="removeElement" placeholder="Remove character">
+            <button class="btn" onclick="removeElement()">Remove</button>
+        </div>
+        <div id="result">
+            <p>Entered characters: <span id="enteredCharacters"></span></p>
+        </div>
+    </div>
+
+    <script>
+        const enteredCharactersArray = [];
+
+        function addElement() {
+            const inputElement = document.getElementById("addElement");
+            const character = inputElement.value;
+            enteredCharactersArray.push(character);
+            inputElement.value = "";
+            displayEnteredCharacters();
+        }
+
+        function searchElement() {
+            const inputElement = document.getElementById("searchElement");
+            const characterToSearch = inputElement.value;
+            const found = enteredCharactersArray.includes(characterToSearch);
+            alert(`Character '${characterToSearch}' exists: ${found}`);
+            inputElement.value = "";
+        }
+
+        function removeElement() {
+            const inputElement = document.getElementById("removeElement");
+            const characterToRemove = inputElement.value;
+            const index = enteredCharactersArray.indexOf(characterToRemove);
+            if (index !== -1) {
+                enteredCharactersArray.splice(index, 1);
+                inputElement.value = "";
+                displayEnteredCharacters();
+            }
+        }
+
+        function displayEnteredCharacters() {
+            const enteredCharactersSpan = document.getElementById("enteredCharacters");
+            enteredCharactersSpan.innerHTML = ""; // Clear the display
+            enteredCharactersArray.forEach(character => {
+                const charBox = document.createElement("div");
+                charBox.classList.add("char-box");
+                charBox.textContent = character;
+                enteredCharactersSpan.appendChild(charBox);
+            });
+        }
+    </script>
+</body>
+
+</html>

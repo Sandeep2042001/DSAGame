@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack Data Structure</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            font-size: 24px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            font-size: 18px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            background-color: #2980b9;
+            color: #fff;
+        }
+
+        button:hover {
+            background-color: #3498db;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 18px;
+            margin-bottom: 5px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            transition: transform 0.3s ease; /* Add animation */
+        }
+
+        /* Style for the stack container */
+        .stack-container {
+            display: inline-block;
+            width: 200px;
+            height: 300px;
+            border: 2px solid #2980b9;
+            background-color: #ecf0f1;
+            margin: 10px;
+            overflow-y: auto;
+        }
+
+        /* Style for the stack element */
+        .stack-element {
+            display: block;
+            text-align: center;
+            background-color: #3498db;
+            color: #fff;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s ease; /* Add animation */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Stack Data Structure</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Stack Operations</h2>
+            <label for="elementInput">Enter Stack Element:</label>
+            <input type="text" id="elementInput">
+            <button onclick="pushElement()">Push</button>
+            <button onclick="popElement()">Pop</button>
+            <button onclick="getTop()">Top of the Stack</button>
+        </section>
+        <section>
+            <h2>Stack</h2>
+            <div class="stack-container" id="stackContainer">
+                <!-- Stack elements will be displayed here -->
+            </div>
+        </section>
+    </main>
+    <script>
+        const stack = []; // Initialize an empty stack
+
+        function pushElement() {
+            const elementInput = document.getElementById('elementInput');
+            const elementValue = elementInput.value;
+
+            // Check if the input is not empty
+            if (elementValue.trim() !== '') {
+                stack.push(elementValue);
+                updateStackVisual();
+                elementInput.value = ''; // Clear the input field
+            }
+        }
+
+        function popElement() {
+            if (stack.length > 0) {
+                stack.pop();
+                updateStackVisual();
+            }
+        }
+
+        function getTop() {
+            if (stack.length > 0) {
+                alert(`Top of the Stack: ${stack[stack.length - 1]}`);
+            } else {
+                alert('The stack is empty.');
+            }
+        }
+
+        function updateStackVisual() {
+            const stackContainer = document.getElementById('stackContainer');
+            stackContainer.innerHTML = ''; // Clear the stack container
+
+            // Populate the stack container with stack elements
+            for (let i = stack.length - 1; i >= 0; i--) {
+                const stackElement = document.createElement('div');
+                stackElement.className = 'stack-element';
+                stackElement.textContent = stack[i];
+                stackContainer.appendChild(stackElement);
+
+                // Add animation
+                setTimeout(() => {
+                    stackElement.style.transform = 'scale(1)';
+                }, i * 200);
+            }
+        }
+    </script>
+</body>
+</html>

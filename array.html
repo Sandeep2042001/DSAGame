@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,800;0,900;0,1000;1,800&display=swap" rel="stylesheet">
+    <title>Array Data Structure</title>
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            font-size: 24px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            background-color: #2980b9;
+            color: #fff;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            height: calc(100vh - 60px);
+        }
+        #arraySize{
+            
+                padding: 10px;
+                font-size: 16px;
+        }
+
+        #input-container {
+            margin-top: 20px;
+                padding: 10px;
+                font-size: 34px;
+
+        }
+        
+
+        #input {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        #output {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            size: 100px;
+        }
+        .array-element{
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        #container{
+            color: #3498db;
+            font-size: 34px;
+        }
+
+        /* CSS animation for displaying numbers with boxes */
+        .array-index {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            padding: 8px;
+            margin: 4px;
+            border-radius: 4px;
+            animation-name: fadeIn;
+            animation-duration: 0.5s;
+            animation-timing-function: ease-in-out;
+            display: inline-block;
+            background-color: #3498db; /* Updated color */
+            color: #fff; /* Text color */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px 20px; /* Increased padding */
+            margin: 5px;
+            font-size: 20px; /* Increased font size */
+        }
+        #input-container{
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>Welcome to Array Data Structure</header>
+    <div id="container">
+        <p>Enter the size of the array:</p>
+        <div id="input-container">
+            <input type="number" id="arraySize" placeholder="Enter array size">
+            <button class="button" onclick="askForArrayElements()">Next</button>
+        </div>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        let arraySize;
+        let arrayElements = [];
+
+        function askForArrayElements() {
+            arraySize = parseInt(document.getElementById('arraySize').value);
+
+            // Clear previous content and input fields
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = '';
+            document.getElementById('input-container').innerHTML = '';
+
+            // Prompt user to enter array elements
+            for (let i = 0; i < arraySize; i++) {
+                const inputElement = document.createElement('input');
+                inputElement.type = 'number';
+                inputElement.placeholder = 'Enter element ' + (i + 1);
+                inputElement.classList.add('array-element');
+                document.getElementById('input-container').appendChild(inputElement);
+            }
+
+            const submitButton = document.createElement('button');
+            submitButton.textContent = 'Submit';
+            submitButton.classList.add('button');
+            submitButton.onclick = collectArrayElements;
+            document.getElementById('input-container').appendChild(submitButton);
+        }
+
+        function collectArrayElements() {
+            // Collect array elements from input fields
+            arrayElements = [];
+            const inputElements = document.getElementsByClassName('array-element');
+            for (let i = 0; i < inputElements.length; i++) {
+                arrayElements.push(parseInt(inputElements[i].value));
+            }
+
+            // Display the entered array with animation and boxes
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = '';
+
+            arrayElements.forEach((number, index) => {
+                const arrayIndex = document.createElement('div');
+                arrayIndex.textContent = number;
+                arrayIndex.classList.add('array-index');
+                arrayIndex.style.animationDelay = `${index * 0.5}s`; // Delay animation
+                outputDiv.appendChild(arrayIndex);
+            });
+
+            // Prompt the user to delete an element
+            const deleteInput = document.createElement('input');
+            deleteInput.type = 'number';
+            deleteInput.placeholder = 'Enter index to delete';
+            deleteInput.classList.add('array-element');
+            document.getElementById('input-container').appendChild(deleteInput);
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete Element';
+            deleteButton.classList.add('button');
+            deleteButton.onclick = deleteArrayElement;
+            document.getElementById('input-container').appendChild(deleteButton);
+        }
+
+        function deleteArrayElement() {
+            const deleteIndex = parseInt(document.getElementsByClassName('array-element')[arraySize].value);
+        
+            if (!isNaN(deleteIndex) && deleteIndex >= 0 && deleteIndex < arrayElements.length) {
+                arrayElements.splice(deleteIndex, 1);
+                collectArrayElements();
+            }
+        }
+        
+    </script>
+</body>
+</html>

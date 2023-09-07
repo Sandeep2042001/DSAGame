@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,800;0,900;0,1000;1,800&display=swap" rel="stylesheet">
+    <title>Insertion</title>
+    <style>
+        body{
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        .heading{
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            font-size: 30px;
+            height: 40px;
+        }
+
+        .data_containers {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: row;
+            
+        }
+
+        .photo {
+            height: 400px;
+            margin-left: 180px;
+            margin-top: 50px;
+            margin-right: 100px;
+            width: 500px;
+            border-radius: 10px;
+            /* padding-top: 90px; */
+        }
+        .Defination {
+            display: flex;
+            flex-direction: row;
+            border: 10px solid  #3498db; /* Set the border style, width, and color */
+            height: 80px;
+            width: 1120px;
+            margin-left: 180px;
+            margin-top: 50px;
+            color: #3498db;
+            padding: 5px;
+            
+            border-radius: 10px;
+            /* padding-top: 90px; */
+        }
+
+        .Defination .name{
+            color: #065e98;
+        }
+
+        .upper{
+            display: flex;
+            flex-direction: row;
+        }
+
+        
+
+      
+        .opration {
+            border: 10px solid  #3498db; /* Set the border style, width, and color */
+            height: 500px;
+            width: 700px;
+            border-radius: 10px;
+            padding-top: 2px;
+        }
+
+        .photo img{
+            width: 450px;
+            padding-top: 60px;
+           
+        }
+
+        .upper .Codebtn{
+                margin-top: 100px;
+                margin-left: 180px;
+        }
+
+        .upper .Codebtn .btn{
+            padding-top: 40px;
+            padding-bottom: 40px;
+            height: 300px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 10px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+            color: #3498db;
+            /* transition: background-color 0.3s ease; */
+        }
+
+        .btn:hover {
+            background-color: #3498db;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        Add an element
+    </div>
+    <div class="Defination">
+   
+        <div class="defe">Insertion in a linked list involves adding a new node at a specific position within the list. The time complexity of insertion in a linked list depends on where you want to insert the new node and the type of linked list (singly, doubly, or circular). </div>
+      </div>
+        
+
+    <div class="upper">
+        
+        
+        <div class="photo">
+            
+            <video width="700"  autoplay muted>
+                <source src="ArrayInsertation.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            
+        </div>
+
+        <div class="Codebtn">
+            <button class="btn btn-outline-info" class="btn" onclick="visualize('L')">Please Click me to Try It YourSelf !</button>
+          </div>
+                
+            </div>
+
+    
+</body>
+<script>
+    function visualize(dataStructure) {
+        // Check which data structure is selected
+        if (dataStructure === 'L') {
+            // Redirect to Array.html
+            window.location.href = 'linkedList.html';
+        } 
+    }
+</script>
+</html>
